@@ -1,0 +1,1039 @@
+/* Reset jarak bawaan dan gunakan ukuran elemen yang sudah mencakup padding serta border. */
+*, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Atur font dan latar utama halaman. */
+body {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  background-color: #f1f5f1;
+  background-image: linear-gradient(145deg, #f8faf7 0%, #edf3ee 52%, #f4f6f2 100%);
+}
+
+/* Buat perpindahan ke bagian anchor halaman bergulir dengan halus. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sembunyikan scrollbar bawaan pada browser berbasis WebKit. */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Buat navigasi menempel di atas, ratakan isinya, beri efek kaca, dan animasikan saat muncul. */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: 20px 20px;
+  animation: nav-drop 700ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+
+/* Animasi navbar: memudar sambil bergerak turun ke posisi normal. */
+@keyframes nav-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi menu dropdown: memudar sambil bergerak turun sedikit. */
+@keyframes menu-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi masuk dari bawah: opacity naik dan posisi kembali ke tempat semula. */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi masuk dari kiri menuju posisi semula. */
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animasi masuk dari kanan menuju posisi semula. */
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Judul hero masuk dari kiri menggunakan animasi slide-left. */
+.hero-section .content h1 {
+  animation: slide-left 700ms ease-out backwards;
+}
+
+/* Paragraf hero muncul dari bawah setelah jeda 120 milidetik. */
+.hero-section .content > p {
+  animation: slide-up 700ms ease-out 120ms backwards;
+}
+
+/* Tombol-tombol hero muncul dari bawah setelah jeda 240 milidetik. */
+.hero-section .action-group {
+  animation: slide-up 700ms ease-out 240ms backwards;
+}
+
+/* Gambar hero masuk dari kanan setelah jeda 180 milidetik. */
+.hero-section .image {
+  animation: slide-right 700ms ease-out 180ms backwards;
+}
+
+/* Judul dan teks berbagai bagian muncul dari bawah saat halaman dibuka. */
+.project-section h2,
+.project-section p,
+.tech h1,
+.tech p,
+.contact-section .form,
+.contact-form,
+.foot h6,
+.footer-socials,
+.foot p {
+  animation: slide-up 700ms ease-out backwards;
+}
+
+/* Kartu proyek muncul dari bawah. */
+.projects .card {
+  animation: slide-up 700ms ease-out backwards;
+}
+
+/* Tunda animasi kartu proyek kedua, ketiga, dan keempat agar tampil berurutan. */
+.projects .card:nth-child(2) { animation-delay: 100ms; }
+.projects .card:nth-child(3) { animation-delay: 200ms; }
+.projects .card:nth-child(4) { animation-delay: 300ms; }
+
+/* Tunda kemunculan ikon teknologi berikutnya secara bertahap. */
+.tech img:nth-of-type(2) { animation-delay: 80ms; }
+.tech img:nth-of-type(3) { animation-delay: 160ms; }
+.tech img:nth-of-type(4) { animation-delay: 240ms; }
+.tech img:nth-of-type(5) { animation-delay: 320ms; }
+
+/* Formulir informasi kontak bergerak masuk dari kiri. */
+.contact-section .form {
+  animation-name: slide-left;
+}
+
+/* Formulir kontak bergerak masuk dari kanan dengan jeda singkat. */
+.contact-form {
+  animation-name: slide-right;
+  animation-delay: 120ms;
+}
+
+/* Susun tautan navigasi mendatar, beri jarak, dan hilangkan bullet list. */
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+  list-style: none;
+  text-align: center;
+}
+
+/* Atur tampilan tautan navigasi dan transisi perubahan gayanya. */
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all;
+  transition-duration: 500ms;
+  border-bottom: 1px solid transparent;
+}
+
+/* Beri garis bawah dan ubah warna tautan saat pointer diarahkan. */
+nav ul li a:hover {
+  border-bottom: 1px solid black;
+  color: blue;
+}
+
+/* Tentukan ukuran teks elemen header. */
+.header {
+  font-size: 20px;
+}
+
+/* Susun logo/identitas merek secara mendatar dan beri jarak. */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hilangkan margin bawaan judul di dalam header. */
+.header h2 {
+  margin: 0;
+}
+
+/* Bentuk tautan CV seperti tombol biru dengan padding, border, dan transisi. */
+.cv {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 7px;
+  font-weight: bold;
+  border: 2px solid black;
+  transition: all 0.3s ease;
+}
+
+/* Gelapkan tombol CV dan ubah warna teks saat diarahkan. */
+.cv:hover {
+  background-color: white;
+  color: black;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+/* Isi teks dengan gradient; properti awalan WebKit membantu dukungan browser. */
+.text-gradient {
+  background-image: linear-gradient(to right, #306cee, #7bbffe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Susun area hero dalam baris, sejajarkan tengah, dan tentukan ruang minimumnya. */
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  min-height: 500px;
+  padding: 20px;
+}
+
+/* Beri ruang konten hero dan izinkan kolomnya mengisi sisa ruang flex. */
+.content {
+  padding: 80px 20px;
+  flex: 1;
+}
+
+/* Tetapkan lebar dasar kolom gambar hero sebesar 350 piksel. */
+.image {
+  flex: 0 0 350px;
+}
+
+/* Jadikan gambar blok penuh kolom, jaga proporsi, dan potong menjadi lingkaran. */
+.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Perbesar gambar sedikit saat diarahkan dan transisikan perubahan. */
+.image:hover {
+  transform: scale(1.02);
+  transition: all;
+  transition-duration: 600ms;
+}
+
+/* Beri jarak bawah pada judul dan paragraf konten. */
+.content h1,
+.content p {
+  margin-bottom: 20px;
+}
+
+/* Susun tombol dan aksi secara vertikal, rata kiri, dengan jarak antaritem. */
+.action-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* Susun tombol dalam baris dan izinkan pindah baris jika ruang tidak cukup. */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Gaya dasar tombol: ukuran, sudut, border, dekorasi teks, dan transisi. */
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
+  opacity 200ms ease, transform 150ms ease;
+}
+
+/* Warna dasar tombol utama. */
+.button-primary {
+  background-color: black;
+  color: white;
+}
+
+/* Balik warna tombol utama saat diarahkan pointer. */
+.button-primary:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+/* Warna dasar tombol WhatsApp. */
+.button-whatsapp {
+  background-color: #25d366;
+  color: white;
+}
+
+/* Balik warna tombol WhatsApp dan tampilkan border saat diarahkan. */
+.button-whatsapp:hover {
+  background-color: white;
+  color: #25d366;
+  border: 1px solid #25d366;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+/* Susun ikon media sosial dalam satu baris dan ratakan ke tengah. */
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Samakan ukuran dan bentuk tombol ikon sosial di hero dan footer. */
+.icon-group a,
+.footer-socials a {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+/* Beri warna, border, dan ukuran ikon untuk tautan sosial di hero. */
+.icon-group a {
+  border: 1px solid grey;
+  color: black;
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Tampilkan proyek sebagai grid responsif dengan jarak dan lebar maksimum. */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Perbesar sedikit kartu proyek saat pointer diarahkan. */
+.card:hover {
+  transform: scale(1.02);
+  transition: all;
+  transition-duration: 600ms;
+}
+
+/* Balik warna ikon sosial saat pointer diarahkan. */
+.icon-group a:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+/* Atur ruang, perataan teks, posisi anchor, dan latar bagian proyek. */
+.project-section {
+  min-height: 0;
+  padding: 64px 20px 44px;
+  text-align: center;
+  scroll-margin-top: 100px;
+  background-color: rgba(226, 237, 229, 0.62);
+}
+
+/* Atur jarak bawah judul bagian proyek. */
+.project-section h2 {
+  margin-bottom: 8px;
+}
+
+/* Atur jarak bawah paragraf bagian proyek. */
+.project-section p {
+  margin-bottom: 4px;
+}
+
+/* Susun label teknologi proyek secara mendatar dan izinkan label membungkus. */
+.list-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+}
+
+/* Bentuk setiap label sebagai chip kecil dengan border dan teks tebal. */
+.list-group .list-group-item {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Warna label pertama. */
+.list-group-item:nth-child(1) {
+  color: #b93815;
+  background-color: #fff0eb;
+  border-color: #f2a08b;
+}
+
+/* Warna label kedua. */
+.list-group-item:nth-child(2) {
+  color: #145b92;
+  background-color: #edf6ff;
+  border-color: #91c7f2;
+}
+
+/* Warna label ketiga. */
+.list-group-item:nth-child(3) {
+  color: #705000;
+  background-color: #fff8dc;
+  border-color: #e8ca68;
+}
+
+/* Ubah label menjadi merah dengan teks putih saat diarahkan. */
+.list-group-item:hover {
+  color: white;
+  background-color: #b93815;
+  border-color: #f2a08b;
+} 
+
+/* Izinkan kartu proyek menyusut di dalam grid dan hilangkan border kartu. */
+.projects .card {
+  min-width: 0;
+  border: none;
+}
+
+/* Buat gambar kartu selebar kartu, dengan rasio tetap dan pemotongan rapi. */
+.projects .card-img-top {
+  width: 100%;
+  aspect-ratio: 1.55;
+  object-fit: cover;
+}
+
+/* Hilangkan garis tautan pada tautan kartu dan gunakan teks hitam. */
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* Ubah tautan kartu menjadi oranye dan beri garis bawah saat diarahkan. */
+.card-link:hover {
+  color: blue;
+  border-bottom: 1px solid blue;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+/* Atur perataan, padding, posisi anchor, dan warna latar bagian teknologi. */
+.tech {
+  text-align: center;
+  padding: 88px 20px 40px;
+  scroll-margin-top: 100px;
+  background-color: rgba(249, 251, 248, 0.72);
+}
+
+/* Samakan ukuran judul dan paragraf utama bagian teknologi. */
+.tech h1, .tech p {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Beri padding dan ukuran teks khusus untuk paragraf teknologi. */
+.tech p {
+  padding: 10px;
+  font-size: 18px;
+}
+
+/* Buat ikon teknologi berukuran seragam dengan border gradient, bayangan, dan animasi. */
+.tech img {
+  width: 100px;
+  height: 100px;
+  margin: 0 12px;
+  padding: 12px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, #248f68, #f0b34a, #e76f51) border-box;
+  box-shadow: 0 4px 12px rgba(32, 54, 43, 0.1);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  animation: slide-up 700ms ease-out backwards;
+}
+
+/* Angkat ikon teknologi dan pertegas bayangannya saat diarahkan. */
+.tech img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(32, 54, 43, 0.16);
+}
+
+/* Hilangkan bullet serta jarak bawaan daftar kontak. */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Susun konten kontak dalam kolom fleksibel di tengah halaman. */
+.contact-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 20px;
+  padding-top: 48px;
+  scroll-margin-top: 100px;
+}
+
+/* Bagi ruang secara seimbang antara informasi kontak dan formulir. */
+.contact-section > .form,
+.contact-form {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Beri jarak bawah setiap field formulir. */
+.contact-field {
+  margin-bottom: 16px;
+}
+
+/* Susun beberapa field formulir berdampingan dengan jarak. */
+.contact-fields-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* Bagi lebar baris field dengan rata dan cegah konten meluap. */
+.contact-fields-row .contact-field {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Beri jarak antaritem pada daftar kontak. */
+.contact-list li {
+  margin-bottom: 8px;
+}
+
+/* Sembunyikan kotak error secara bawaan dan tentukan gaya pesannya. */
+.error-box {
+  display: none;
+  gap: 8px;
+  color: red;
+  font-size: 14px;
+}
+
+/* Sembunyikan tombol menu pada layar besar; tetap siapkan tampilan tombolnya. */
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Bentuk tiga garis ikon hamburger menu. */
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px;
+  background: #222;
+}
+
+/* Susun footer vertikal, ratakan ke tengah, dan beri latar gelap. */
+.foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 20px 20px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+/* Hilangkan margin judul footer dan tentukan ukuran teksnya. */
+.foot h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Susun tautan sosial di footer secara mendatar dan rata tengah. */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Beri border tipis dan warna terang pada tautan sosial footer. */
+.footer-socials a {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+}
+
+/* Balik warna tautan sosial footer saat diarahkan. */
+.footer-socials a:hover {
+  color: black;
+  background-color: white;
+}
+
+/* Tentukan ukuran ikon sosial di footer. */
+.footer-socials i {
+  font-size: 20px;
+}
+
+/* Rapikan jarak teks footer dan gunakan warna putih transparan. */
+.foot p {
+  margin: 0;
+  padding-top: 4px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.875rem;
+}
+
+/* Tampilkan pointer saat ikon footer dapat diklik. */
+.foot i {
+  cursor: pointer;
+}
+
+/* Terapkan penyesuaian layout berikut pada layar dengan lebar maksimal 768 piksel. */
+@media (max-width: 768px) {
+  /* Percepat animasi navbar pada layar kecil. */
+  nav {
+    animation-duration: 500ms;
+  }
+
+  /* Percepat animasi elemen halaman pada layar kecil. */
+  .hero-section .content h1,
+  .hero-section .content p,
+  .hero-section .action-group,
+  .hero-section .image,
+  .project-section h2,
+  .project-section p,
+  .projects .card,
+  .tech h1,
+  .tech p,
+  .tech img,
+  .contact-section .form,
+  .contact-form,
+  .foot h6,
+  .footer-socials,
+  .foot > p {
+    animation-duration: 500ms;
+  }
+
+  /* Kurangi padding vertikal bagian proyek di layar kecil. */
+  .project-section {
+    padding: 42px 20px 30px;
+  }
+
+  /* Kurangi ruang kosong bagian teknologi di layar kecil. */
+  .tech {
+    padding: 56px 20px 24px;
+  }
+
+  /* Perkecil ikon teknologi dan jarak sekelilingnya di layar kecil. */
+  .tech img {
+    width: 72px;
+    height: 72px;
+    padding: 8px;
+    margin: 0 6px;
+  }
+
+  /* Kurangi margin dan padding atas bagian kontak di layar kecil. */
+  .contact-section {
+    margin: 48px auto;
+    padding-top: 36px;
+  }
+
+  /* Padatkan jarak dan padding footer pada layar kecil. */
+  .foot {
+    gap: 8px;
+    padding: 14px 12px 10px;
+  }
+
+  /* Kurangi jarak antarikon sosial di footer. */
+  .footer-socials {
+    gap: 8px;
+  }
+
+  /* Perkecil tombol sosial footer agar sesuai layar kecil. */
+  .footer-socials a {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Perkecil ikon sosial footer pada layar kecil. */
+  .footer-socials i {
+    font-size: 17px;
+  }
+
+  /* Perkecil teks footer pada layar kecil. */
+  .foot p {
+    font-size: 0.7rem;
+  }
+
+  /* Susun hero secara vertikal agar konten muat pada layar kecil. */
+  .hero-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    min-height: 0;
+    padding: 12px 22px 32px;
+  }
+
+  /* Kurangi padding konten hero di layar kecil. */
+  .content {
+    padding: 30px 2px 10px;
+  }
+
+  /* Batasi lebar judul hero dan sesuaikan ukuran serta jarak barisnya. */
+  .content h1 {
+    max-width: 13ch;
+    margin-bottom: 16px;
+    font-size: 2rem;
+    line-height: 1.16;
+  }
+
+  /* Tampilkan teks gradient pada baris tersendiri dengan lebar mengikuti isi. */
+  .content h1 .text-gradient {
+    display: block;
+    width: fit-content;
+    font-size: 2.5rem;
+  }
+
+  /* Batasi lebar paragraf hero dan tingkatkan kenyamanan baca. */
+  .content > p {
+    max-width: 38ch;
+    color: #52615c;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Batasi lebar gambar hero agar responsif dan posisikan di tengah. */
+  .image {
+    flex-basis: auto;
+    width: min(100%, 350px);
+    margin: 0 auto;
+  }
+
+  /* Ubah daftar proyek menjadi gulir horizontal dengan snap yang tidak memaksa. */
+  .projects {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 16px;
+    scroll-snap-type: x proximity;
+  }
+
+  /* Sembunyikan scrollbar daftar proyek pada browser WebKit. */
+  .projects::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Beri kartu proyek lebar tetap agar dapat digulir satu per satu. */
+  .projects .card {
+    flex: 0 0 230px;
+    width: 230px;
+    scroll-snap-align: start;
+  }
+
+  /* Susun informasi dan formulir kontak secara vertikal. */
+  .contact-section {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Buat kedua bagian kontak memenuhi lebar kontainer mobile. */
+  .contact-section > .form,
+  .contact-form {
+    width: 100%;
+  }
+
+  /* Tumpuk field formulir yang sebelumnya sejajar. */
+  .contact-fields-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Tampilkan tombol hamburger pada layar kecil. */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Sembunyikan daftar navigasi dan posisikan panel dropdown di bawah navbar. */
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 50%;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.78);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Tampilkan navigasi sebagai menu vertikal ketika navbar memiliki class is-open. */
+  nav.is-open ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    transform-origin: top right;
+    animation: menu-drop 260ms ease-out both;
+  }
+
+  /* Jadikan setiap tautan menu selebar baris dan ratakan teks ke kanan. */
+  nav ul li a {
+    display: block;
+    text-align: right;
+  }
+
+  /* Hilangkan garis bawah hover pada tautan di menu mobile. */
+
+  /* Posisikan tombol CV di sisi kanan menu mobile. */
+  nav ul li .cv {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    font-size: 15px;
+  }
+}
+
+/* Aktifkan skema warna gelap dan atur variabel serta latar utama. */
+body.dark-mode {
+  color-scheme: dark;
+  --bs-body-color: #e8eeea;
+  --bs-body-bg: #171c1a;
+  --bs-border-color: #3b4640;
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  background-image: linear-gradient(145deg, #171c1a 0%, #202a24 52%, #171c1a 100%);
+}
+
+/* Gelapkan latar bagian proyek ketika mode gelap aktif. */
+body.dark-mode .project-section {
+  background-color: rgba(42, 56, 47, 0.72);
+}
+
+/* Gelapkan latar bagian teknologi ketika mode gelap aktif. */
+body.dark-mode .tech {
+  background-color: rgba(32, 41, 36, 0.72);
+}
+
+/* Ubah latar navbar pada mode gelap. */
+body.dark-mode nav {
+  background-color: rgba(23, 28, 26, 0.84);
+}
+
+/* Ubah latar panel menu dropdown pada mode gelap. */
+body.dark-mode nav ul {
+  background: rgba(23, 28, 26, 0.92);
+}
+
+/* Cerahkan teks navigasi dan ikon sosial hero dalam mode gelap. */
+body.dark-mode nav ul li a,
+/* Cerahkan garis border ikon sosial hero pada mode gelap. */
+body.dark-mode .icon-group a {
+  color: #e8eeea;
+}
+
+body.dark-mode .icon-group a {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Balik warna ikon sosial hero saat diarahkan di mode gelap. */
+body.dark-mode .icon-group a:hover {
+  background-color: #e8eeea;
+  color: #171c1a;
+  border-color: #e8eeea;
+}
+
+/* Beri warna hover yang terbaca pada tautan navigasi mode gelap. */
+body.dark-mode nav ul li a:hover {
+  border-color: white;
+  color: blue;
+}
+
+body.dark-mode .cv:hover {
+  background-color: black;
+  color: white;
+  border-color: 2px solid white;
+  transition: all;
+  transition-duration: 500ms;
+}
+
+body.dark-mode .cv {
+  background-color: #e8eeea;
+  color: #171c1a;
+  border-color: #3b4640;
+}
+
+/* Warnai kontrol pengubah tema dan tunjukkan bahwa kontrol dapat diklik. */
+body.dark-mode #themeToggle {
+  color: #ffd166;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Cerahkan garis hamburger menu dalam mode gelap. */
+body.dark-mode .menu-toggle span {
+  background: #e8eeea;
+}
+
+/* Cerahkan paragraf hero agar kontras pada latar gelap. */
+body.dark-mode .content > p {
+  color: #c1ccc5;
+}
+
+/* Balik warna tombol utama agar tetap kontras di mode gelap. */
+body.dark-mode .button-primary {
+  background-color: #e8eeea;
+  color: #171c1a;
+}
+
+/* Buat hover tombol utama transparan dengan teks dan border terang. */
+body.dark-mode .button-primary:hover {
+  border-color: #e8eeea;
+  background-color: transparent;
+  color: #e8eeea;
+}
+
+/* Atur variabel Bootstrap serta warna kartu proyek dalam mode gelap. */
+body.dark-mode .projects .card {
+  --bs-card-bg: #222925;
+  --bs-card-color: #e8eeea;
+  --bs-card-border-color: #3b4640;
+  background-color: #222925;
+  color: #e8eeea;
+}
+
+/* Atur variabel warna daftar label proyek untuk mode gelap. */
+body.dark-mode .projects .list-group {
+  --bs-list-group-bg: #222925;
+  --bs-list-group-color: #e8eeea;
+  --bs-list-group-border-color: #3b4640;
+}
+
+/* Sesuaikan warna label pertama untuk latar gelap. */
+body.dark-mode .list-group-item:nth-child(1) {
+  color: #ffb8a5;
+  background-color: #442a25;
+  border-color: #75483d;
+}
+
+/* Sesuaikan warna label kedua untuk latar gelap. */
+body.dark-mode .list-group-item:nth-child(2) {
+  color: #a9d9ff;
+  background-color: #203443;
+  border-color: #41647b;
+}
+
+/* Sesuaikan warna label ketiga untuk latar gelap. */
+body.dark-mode .list-group-item:nth-child(3) {
+  color: #f5d77a;
+  background-color: #3c3520;
+  border-color: #726132;
+}
+
+/* Cerahkan tautan kartu proyek pada mode gelap. */
+body.dark-mode .card-link {
+  color: #e8eeea;
+}
+
+body.dark-mode .card-link:hover {
+  color: rgb(100, 180, 255);
+  border-color: rgb(100, 180, 255);
+}
+
+/* Beri latar gelap dan teks terang pada input formulir. */
+body.dark-mode .form-control {
+  --bs-body-bg: #222925;
+  color: #e8eeea;
+}
+
+/* Cerahkan teks placeholder agar tetap terbaca di mode gelap. */
+body.dark-mode .form-control::placeholder {
+  color: #aab6ae;
+}
+
+/* Haluskan perubahan latar dan warna pada body, navbar, dan kartu proyek. */
+body,
+nav,
+.projects .card {
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.btn:hover {
+  color: blue;
+  background-color: white;
+  border: 1px solid blue;
+  transition: all;
+  transition-duration: 500ms;
+}
